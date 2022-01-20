@@ -1,14 +1,14 @@
 #!/bin/bash
-net="N30"
+net="cityNY"
 input_file="new_users_${net}.txt"
-nsamples=100
+nsamples=1
 for random_linking in "random" "preferential"
 do
-for p_active in 0.1 0.5 0.8
+for p_active in 0.05
 do
-    for p_gf in 0.1 0.5 0.8
+    for p_gf in 0.003
     do
-        for p_gj in 0.0
+        for p_gj in 0.0 0.1 0.5 0.8 1.0
         do 
            for p_sample in 1.0
               do
