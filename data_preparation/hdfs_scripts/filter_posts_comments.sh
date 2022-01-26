@@ -14,4 +14,4 @@ done
 
 # then we store or subresults in the same location "results_all" and run secound pair of map-reduce scripts to get final result
 
-mapred streaming -input results_all  -output results_sc -mapper map2/map.py -reducer map2/reduce.py -file map2/map.py -file map2/reduce.py
+mapred streaming -input results_all  -output first_post -mapper map2/map.py -reducer map2/reduce.py -file map2/map.py -file map2/reduce.py
