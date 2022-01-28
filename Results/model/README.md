@@ -1,2 +1,2 @@
-results from simulation are to large, so they are not posted here
+results from simulation are too large, so they are not posted here
 
