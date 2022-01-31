@@ -8,14 +8,14 @@ include("main_model.jl")
 using .model
 
 
-p_active = parse(Float32, ARGS[1]) #probability of active users
-p_gf = parse(Float32, ARGS[2]) #group_formation
-p_gj = parse(Float32, ARGS[3]) #group_joining
-p_sample = parse(Float32, ARGS[4]) # the size of sample for linking in aff network
-random_linking = ARGS[5]
-input_file = ARGS[6]
-output_name = ARGS[7]
-nsamples = parse(Int64, ARGS[8])
+p_a = parse(Float32, ARGS[1]) #probability of active users
+p_g = parse(Float32, ARGS[2]) #group_formation
+p_aff = parse(Float32, ARGS[3]) #group_joining
+random_linking = ARGS[4]
+
+input_file = ARGS[5]
+output_name = ARGS[6]
+nsamples = parse(Int64, ARGS[7])
 
 
 # import ts of new users
@@ -33,5 +33,5 @@ end
 
 for i in 1:nsamples
     output_file = "$(output_name)_$(i).h5py"
-    @time run_growing_model_ts(p_active, p_gf, p_gj, ts, "True", p_sample, output_file, random_linking)
+    @time run_growing_model_ts(p_a, p_g, p_aff, ts, output_file, random_linking)
 end

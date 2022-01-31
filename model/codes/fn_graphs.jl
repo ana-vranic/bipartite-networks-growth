@@ -4,6 +4,15 @@ module graphfn
     using StatsBase
 
     function add_link!(network::Dict{Int64,Set{Int64}}, u1::Int64, u2::Int64)
+        """
+        function to add new link in social network
+        arguments: network: adj list of social network in form of disctionary
+                   u1, u2: nodes to make link between them
+
+        output:
+               updated network
+
+        """
         #this function add users u1 and u2 to the affiliation network
         if u1 in keys(network)
             push!(network[u1], u2)
@@ -20,7 +29,15 @@ module graphfn
     end
 
     function add!(users::Dict{Int64, Vector{Int64}}, groups::Dict{Int64, Vector{Int64}}, u::Int64, g::Int64)
-        #this function add link between user and group in bipartite network
+        """
+        function to add new link in bipartite network
+        arguments: users, groups: adj list of bipartite partitions in form of disctionary
+                   u, g: user and group id to make link between them
+
+        output:
+               updated users and groups
+
+        """
         if u in keys(users)
             push!(users[u], g)
         else
@@ -36,8 +53,19 @@ module graphfn
     end 
 
 
-    function update_dict!(Vnew::Vector{Int64}, Vnew_groups::Vector{Int64}, groups::Dict{Int64, Vector{Int64}}, users::Dict{Int64, Vector{Int64}}, network::Dict{Int64,Set{Int64}}, take_sample::String, per_sample::Float32)
-        # for given set of users and groups we populate bipartite and affiliation network
+    function update_dict!(Vnew::Vector{Int64}, Vnew_groups::Vector{Int64}, groups::Dict{Int64, Vector{Int64}}, users::Dict{Int64, Vector{Int64}}, network::Dict{Int64,Set{Int64}})
+
+        """
+        for given list of nodes Vnew and choosen groups Vnew_groups, this function update bipartite and social network 
+            
+        arguments: groups, users, network: adj list of bipartite partitions and social network
+                   Vnew: Vector of users
+                   Vnew_groups: Vector of groups
+
+        autput:
+               updated groups, users, network
+
+        """
         for i in 1:length(Vnew_groups)
             uid = Vnew[i]
             gid = Vnew_groups[i]
@@ -66,6 +94,9 @@ module graphfn
     end
 
     function get_sizes(groups::Dict{Int64, Vector{Int64}})
+        """
+        this function takes groups partition, and for each group calculate its size at current timestamp
+        """
         #degree of partition 
         #return: vector of degrees
         #size = zeros(Int64, length())
@@ -83,6 +114,9 @@ module graphfn
 
 
     function write_in_h5py(fname::String, step::Int64, groups::Dict{Int64, Vector{Int64}}, users::Dict{Int64, Vector{Int64}})
+        """
+        after aeach timestamp we write sizes of users and groups  in h5py format
+        """
         h5open(fname, "cw") do file
             f = get_sizes(users)
             write(file, "user-degree-s$(step)", f)

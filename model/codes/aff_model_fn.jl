@@ -5,6 +5,10 @@ module affmodel
     using .graphfn
 
     function new_users_linking(Vnew::Vector{Int64}, p_gf::Float32, p_gj::Float32, groups::Dict{Int64, Vector{Int64}}, users::Dict{Int64, Vector{Int64}}, network::Dict{Int64,Set{Int64}}, random_linking::String )
+        """
+        for given list of new users this function choose groups that they will join
+        """
+
         #Vnew_group = []
         l = length(Vnew)
         int = length(groups)
@@ -48,6 +52,10 @@ module affmodel
 
 
     function old_users_linking(Vold::Vector{Int64}, p_gf::Float32, p_gj::Float32, users::Dict{Int64, Vector{Int64}}, groups::Dict{Int64, Vector{Int64}}, network::Dict{Int64,Set{Int64}}, random_linking::String)
+        """
+        for given list of old users this function choose groups that they will join
+        """
+        
         l = length(Vold)
         #Vold_groups = []
         Vold_groups = zeros(Int64, l)
@@ -77,6 +85,9 @@ module affmodel
     end
 
     function random_choice(nuser::Int64, users::Dict{Int64, Vector{Int64}}, groups::Dict{Int64, Vector{Int64}}, random_linking::String)
+        """
+        for given user this function choose group at random
+        """
         vuser_groups = users[nuser]
         choose_from = setdiff(Set(keys(groups)), Set(vuser_groups))
         if length(choose_from)>0
@@ -95,29 +106,11 @@ module affmodel
        return gid
     end 
 
-    function choose_group_affiliation(nuser::Int64, network::Dict{Int64,Set{Int64}}, users::Dict{Int64, Vector{Int64}})
-        # first collect friends groups
-        friends_groups = Int64[]
-        vuser_friends = Set(network[nuser])
-        vuser_groups = users[nuser]
-        for fu in vuser_friends
-            append!(friends_groups, users[fu])
-        end
-        for vg in vuser_groups
-            friends_groups = remove!(friends_groups, vg)
-        end     
-        # if there is any group left we choose from friends groups
-        # othervise user wont join any group
-        if length(friends_groups)>0
-            gid = Random.rand(friends_groups)
-        else
-            gid = -1
-        end
-        return gid
-    end
-
 
     function affiliation_choice(nuser::Int64, network::Dict{Int64,Set{Int64}}, users::Dict{Int64, Vector{Int64}})
+        """
+        for given user this function choose group acording to social linking
+        """
         # first collect friends groups
     
         vuser_friends = network[nuser]
@@ -166,6 +159,9 @@ module affmodel
 
     
   function preferential_choice(choose_from, groups::Dict{Int64, Vector{Int64}})
+        """
+        for given user this function choose larger groups
+        """
         sizes = Dict()
         total_sum = 0
         for g in choose_from
