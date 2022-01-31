@@ -16,9 +16,9 @@ f.close()
 np.savetxt(data, "reddit2012_sizes.txt")
 
 
-mean = np.mean(data)
-data = [x/mean for x in data if x>0]
+#mean = np.mean(data)
+#data = [x/mean for x in data if x>0]
 
-np.savetxt(data, "reddit2012_sizes_normed")
+#np.savetxt(data, "reddit2012_sizes_normed")
 
 

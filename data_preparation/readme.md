@@ -19,5 +19,5 @@ finaly obtained rates and sizes distributions are grouped per reddit creation ye
   - `reddit2017_sizes_normed_per_year.json`
   - `reddit2017_logrates_normed_per_year.json`
    
-4) For detailed analasys of subrredits growth from `reddit2017_groups` using code in `reddit_filtered_to2012` we filtered those active untill 2011-12, and removed subreddits active less than month and calculate distributions of sizes and rates. We also calculate time series of new users, active users, new_groups, cumulative number of users and groups. Those data are merged in file `reddit2012_ts.csv`, while merged distributions of sizes and rates are stored in files `reddit2012_logrates_normed.txt`, `reddit2012_sizes_normed.txt`
+4) For detailed analasys of subrredits growth from `reddit2017_groups` using code in `reddit_filtered_to2012` we filtered those active untill 2011-12, and removed subreddits active less than month and calculate distributions of sizes and rates. We also calculate time series of new users, active users, new_groups, cumulative number of users and groups. Those data are merged in file `reddit2012_ts.csv`, while merged distributions of sizes and rates are stored in files `reddit2012_logrates.txt`, `reddit2012_logrates.txt`, `reddit2012_sizes.txt` , `reddit2012_sizes_logrates.txt`
 

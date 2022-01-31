@@ -11,7 +11,8 @@ python scripts/calculate_delta_sizes.py -r local data_to2012year_filtered > data
 python scripts/calculate_rates.py -r local data_to2012year_sizes > data_to2012year_size_rate_lograte
 
 python generate_ts.py
-
+python select_data_logrates.py
+python select_data_sizes.py
 
 
 
