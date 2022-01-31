@@ -1,20 +1,23 @@
-Data preparation
+## Data preparation
 
-1) Reddit data are downloaded from https://redditsearch.io/.
+1) Reddit data are downloaded from https://redditsearch.io/. Data have separated comments and post in the json files. Each file is collection of posts/comments for one moth. 
 
-2) For each user we selected time of the first post on each subreddit
-results are collected in the firstpost file 
-**[subreddit/user] timestamp_when_user_made_first_post_in_subreddit**
+2) We use code from `hdfs_scripts/` to filter raw data. For each subreddit and user we select timestamp when user made first activity on given subreddit. The filtered data are saved in `first_post` file and have following structure
 
-3) running **submit_statistics** we first select groups active in 2017, tend extract rates and sizes 
-   ${loc}/reddit${year}_delta_sizes
-   ${loc}/reddit${year}_size_rate_lograte
+```
+[subreddit/user] timestamp
+```
+
+3) running code in `reddit2017/` from file `first_post` we select group active in 2017 and extract month growth rates and sizes distributions, where subreddits are grouped per creation year
+The outputs are:
+- reddit2017_groups > filtered dataset  
+- reddit2017_delta_sizes > subreddit, year-month, Nnew users
+- reddit2017_rates > subreddit, year-month, growth rate
+
+finaly obtained rates and sizes distributions are grouped per reddit creation year and saved into json files
+  
+  - `reddit2017_sizes_normed_per_year.json`
+  - `reddit2017_logrates_normed_per_year.json`
    
-4) For detailed analasys of subrredits growth from groups active in 2017 we filtered those active untill 2012
-
-   for this we use scripts in reddit_filtered_to2012
-   
-   we also calculate number of new users, number of active users and  new groups
-   and calculate size_rate_lograte of subreddits during time
-   
+4) For detailed analasys of subrredits growth from `reddit2017_groups` using code in `reddit_filtered_to2012` we filtered those active untill 2011-12, and removed subreddits active less than month and calculate distributions of sizes and rates. We also calculate time series of new users, active users, new_groups, cumulative number of users and groups. Those data are merged in file `reddit2012_ts.csv`, while merged distributions of sizes and rates are stored in files `reddit2012_logrates_normed.txt`, `reddit2012_sizes_normed.txt`
 
