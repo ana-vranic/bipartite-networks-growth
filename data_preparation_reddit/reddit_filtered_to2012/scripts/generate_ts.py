@@ -86,4 +86,4 @@ df['total_groups'] = df['new_groups']
 for i in range(1,len(df)):
     df.loc[i, 'total_groups'] =  df.loc[i, 'new_groups'] + df.loc[i-1, 'total_groups']
 
-df.to_csv('%s_ts.csv'%name, index=None)
+df.to_csv('reddit2012_ts.csv'%name, index=None)
