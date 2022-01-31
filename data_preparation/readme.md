@@ -2,7 +2,7 @@
 
 1) Reddit data are downloaded from https://redditsearch.io/. Data have separated comments and post in the json files. Each file is collection of posts/comments for one moth. 
 
-2) We use code from `hdfs_scripts/` to filter raw data. For each subreddit and user we select timestamp when user made first activity on given subreddit. The filtered data are saved in `first_post` file and have following structure
+2) We use code from `hdfs_scripts/` to filter raw data. For each subreddit and user we select timestamp when user had first activity on given subreddit. The filtered data are saved in `first_post` file and have following structure
 
 ```
 [subreddit/user] timestamp
@@ -19,5 +19,9 @@ finaly obtained rates and sizes distributions are grouped per reddit creation ye
   - `reddit2017_sizes_normed_per_year.json`
   - `reddit2017_logrates_normed_per_year.json`
    
+<<<<<<< HEAD
 4) For detailed analasys of subrredits growth from `reddit2017_groups` using code in `reddit_filtered_to2012` we filtered those active untill 2011-12, and removed subreddits active less than month and calculate distributions of sizes and rates. We also calculate time series of new users, active users, new_groups, cumulative number of users and groups. Those data are merged in file `reddit2012_ts.csv`, while merged distributions of sizes and rates are stored in files `reddit2012_logrates.txt`, `reddit2012_logrates.txt`, `reddit2012_sizes.txt` , `reddit2012_sizes_logrates.txt`
+=======
+4) For detailed analasys of subrredits growth from `reddit2017_groups` using code in `reddit_filtered_to2012` we filtered those active untill 2011-12, and removed subreddits active less than month and calculate distributions of sizes and rates. We also calculate time series of new users, active users, new_groups, cumulative number of users and groups. Those data are merged in file `reddit2012_ts.csv`, while merged distributions of sizes and rates are stored in files `reddit2012_rates.txt`, `reddit2012_sizes.txt`
+>>>>>>> 4b5da42e43a185b280adcb957f733b108e719dd3
 
