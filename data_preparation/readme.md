@@ -2,7 +2,7 @@
 
 1) Reddit data are downloaded from https://redditsearch.io/. Data have separated comments and post in the json files. Each file is collection of posts/comments for one moth. 
 
-2) We use code from `hdfs_scripts/` to filter raw data. For each subreddit and user we select timestamp when user made first activity on given subreddit. The filtered data are saved in `first_post` file and have following structure
+2) We use code from `hdfs_scripts/` to filter raw data. For each subreddit and user we select timestamp when user had first activity on given subreddit. The filtered data are saved in `first_post` file and have following structure
 
 ```
 [subreddit/user] timestamp
