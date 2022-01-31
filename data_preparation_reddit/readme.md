@@ -8,7 +8,7 @@
 [subreddit/user] timestamp
 ```
 
-3) running code in `reddit2017/` from file `first_post` we select group active in 2017 and extract month growth rates and sizes distributions, where subreddits are grouped per creation year
+3) running code in `reddit2017/` from file `first_post` we select groups active in 2017 and extract month growth rates and sizes distributions, where subreddits are grouped per creation year
 The outputs are:
 - reddit2017_groups > filtered dataset  
 - reddit2017_delta_sizes > subreddit, year-month, Nnew users
