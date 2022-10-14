@@ -15,4 +15,7 @@ We proposed the bipartite growth model for simulating the growth of online socia
 
 ---
 
-Our empirical analasys is based on Reddit and Meetup datasets. Here we do not give the raw datasets, only the final results of calculated group sizes distributions. The Meetup dataset could be downloaded with Meetup API, while Redddit data could be downloaded on https://pushshift.io/.  
+Our empirical analasys is based on Reddit and Meetup datasets. Here we do not give the raw datasets, only the final results of calculated group sizes distributions. The Meetup dataset could be downloaded with Meetup API, while Redddit data could be downloaded on https://pushshift.io/. 
+
+Our prepocessed datasets take form [userid, timestamp], where timestamp is the time when user is for the first time active in the group. Also, the folder 
+`./data_preparation_reddit` contains map reduce scripts to process big reddit data. 
