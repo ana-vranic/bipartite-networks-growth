@@ -12,3 +12,7 @@ We proposed the bipartite growth model for simulating the growth of online socia
 - probability that user makes new group $p_g$
 - probability that user perform social linking $p_{aff}$
 - random linking could be uniform $random$, or $preferential$ when user has preference toward larger groups
+
+---
+
+Our empirical analasys is based on Reddit and Meetup datasets. Here we do not give the raw datasets, only the final results of calculated group sizes distributions. The Meetup dataset could be downloaded with Meetup API, while Redddit data could be downloaded on https://pushshift.io/.  
