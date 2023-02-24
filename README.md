@@ -2,7 +2,7 @@
 
 This is a suporting repository for the paper [Universal growth of social groups: empirical analysis and modeling](https://arxiv.org/abs/2206.06732).
 
-citation: Ana Vranić et al J. Stat. Mech. (2022) 123402 DOI [10.1088/1742-5468/aca0e9](10.1088/1742-5468/aca0e9)
+citation: Ana Vranić et al J. Stat. Mech. (2022) 123402 DOI [10.1088/1742-5468/aca0e9](https://doi.org/10.1088/1742-5468/aca0e9)
 
 ---
 
